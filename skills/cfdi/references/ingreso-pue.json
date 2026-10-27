@@ -1,0 +1,63 @@
+{
+  "version": "4.0",
+  "folio": "202601060559062048",
+  "fecha": "2026-01-25T19:23:27",
+  "formaPago": "03",
+  "metodoPago": "PUE",
+  "subtotal": 250456.00,
+  "total": 290528.96,
+  "moneda": "MXN",
+  "tipoCambio": 1,
+  "tipoDeComprobante": "I",
+  "exportacion": "01",
+  "lugarExpedicion": "06370",
+  "emisor": {
+    "rfc": "URE180429TM6",
+    "nombre": "UNIVERSIDAD ROBOTICA ESPAÑOLA SA DE CV",
+    "regimenFiscal": "601"
+  },
+  "receptor": {
+    "rfc": "SME170525C62",
+    "nombre": "SURETE MEXICO",
+    "domicilioFiscalReceptor": "01000",
+    "regimenFiscalReceptor": "601",
+    "usoCfdi": "G03"
+  },
+  "conceptos": [
+    {
+      "claveProdServ": "26101101",
+      "cantidad": 1,
+      "claveUnidad": "H87",
+      "unidad": "Pieza",
+      "descripcion": "Motor electrico tesla",
+      "valorUnitario": 250456,
+      "importe": 250456,
+      "objetoImp": "02",
+      "impuestos": {
+        "traslados": [
+          {
+            "base": 250456.000000,
+            "impuesto": "002",
+            "tipoFactor": "Tasa",
+            "tasaOCuota": 0.160000,
+            "importe": 40072.960000
+          }
+        ]
+      }
+    }
+  ],
+  "impuestos": {
+    "traslados": [
+      {
+        "base": 250456.00,
+        "impuesto": "002",
+        "tipoFactor": "Tasa",
+        "tasaOCuota": 0.160000,
+        "importe": 40072.96
+      }
+    ],
+    "totalImpuestosTrasladados": 40072.96,
+    "totalImpuestosRetenidos": 0.00
+  },
+  "complemento": {}
+}

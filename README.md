@@ -1,11 +1,13 @@
-﻿# NTLink CFDI skill
+﻿# Cfdi — NTLink agent skill
 
-Skill para usar el CLI `nt` con tareas de CFDI: revisar documentos, analizar PDF/XML/JSON, preparar y gestionar borradores, y timbrar solo con autorización explícita.
+Si buscas interactuar con el timbrado mexicano de CFDI desde una terminal o un agente como Hermes, esta skill guía el uso del CLI `nt` para revisar documentos, preparar facturas y timbrar con aprobación explícita.
+
+La skill se llama `cfdi` en el instalador (los identificadores técnicos usan minúsculas) y se muestra como **Cfdi** en Codex.
 
 ## Instalar en Codex
 
 ```bash
-npx skills add NTlink/cfdi --skill cfdi --global --agent codex
+npx skills add NTlink/Cfdi --skill cfdi --global --agent codex
 ```
 
 Para instalarla en otros agentes compatibles, omite `--agent codex` y elige los agentes durante la instalación.
@@ -22,3 +24,4 @@ La skill requiere el CLI `nt`, que se instala por separado:
 npm install --global @ntlinkmx/nt
 ```
 
+Antes de cada timbrado, la skill exige mostrar la factura completa al usuario y esperar aprobación explícita de esa versión exacta.

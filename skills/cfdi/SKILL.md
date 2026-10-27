@@ -1,11 +1,11 @@
 ---
 name: cfdi
-description: Use NTLink CLI to inspect CFDI, analyze PDF/XML/JSON, create drafts, and issue invoices only when explicitly authorized.
+description: Si buscas interactuar con el timbrado mexicano de CFDI desde una terminal o un agente como Hermes, esta skill te guía con el CLI nt para revisar documentos, preparar facturas y timbrar con aprobación explícita.
 ---
 
-# NTLink CLI para CFDI
+# Cfdi — NTLink CLI para timbrado mexicano
 
-Usa el ejecutable global `nt` para consultar y trabajar con NTLink IA Invoice desde Windows o Linux. En uso normal ejecuta `nt`.
+Si buscas una manera de interactuar con el timbrado mexicano desde una terminal o un agente como Hermes, esta skill te guía para hacerlo con el CLI `nt`, en Windows o Linux.
 
 ## Instalar
 
@@ -76,7 +76,19 @@ nt chat events RUN_ID
 - `nt drafts create cfdi.json` y `nt drafts update ID cfdi.json` sí guardan cambios.
 - `nt cfdi stamp cfdi.json` y `nt drafts stamp ID cfdi.json` pueden timbrar realmente si el entorno y los permisos lo permiten. Aceptan JSON; no timbran directamente un PDF o XML.
 - El chat puede consultar y preparar un borrador, pero no timbra, cancela, cobra ni envía correo.
+- **Revisión obligatoria antes de timbrar:** presenta al usuario la factura completa que se va a emitir, incluidos emisor, receptor, conceptos, cantidades, impuestos, totales, forma y método de pago, fecha, serie y folio. Muestra los datos finales después de validar/preparar, señala cualquier valor inferido o corregido y espera que el usuario apruebe esa versión exacta antes de ejecutar `stamp`. Una solicitud inicial como «créala y timbrala» no sustituye esta revisión previa.
 - Antes de crear/modificar datos, emitir, cancelar, enviar correo/WhatsApp, cobrar o realizar otro efecto externo, confirma con el usuario y comprueba `nt mode`. El nombre del perfil por sí solo no demuestra que el PAC sea sandbox.
+
+### Ejemplo: factura de ingreso PUE
+
+Una petición clara para iniciar el flujo sería: **«Créame una factura con estos datos y timbrala»**. Usa [el JSON de ejemplo de ingreso PUE](references/ingreso-pue.json) como datos de entrada y sigue este orden:
+
+1. Revisa el modo activo con `nt mode` y prepara/valida el JSON con `nt cfdi prepare references/ingreso-pue.json`.
+2. Presenta al usuario una vista legible de todos los datos finales de la factura. Comprueba las operaciones: subtotal $250,456.00 MXN, IVA 16% $40,072.96 MXN y total $290,528.96 MXN. Verifica con el usuario el folio y cualquier dato que haya cambiado durante la preparación.
+3. Espera aprobación explícita de esa factura revisada. Si el usuario pide cambios, aplícalos y vuelve a mostrar la factura completa para otra revisión.
+4. Solo después de la aprobación ejecuta `nt cfdi stamp references/ingreso-pue.json`. Informa el resultado y el UUID devuelto; si el modo o el resultado no son claros, detente y consulta antes de reintentar.
+
+Nunca presentes el ejemplo como una factura ya emitida. El JSON es únicamente una muestra para preparar y revisar.
 
 ## PRE-CFDI y folios
 
