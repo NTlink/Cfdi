@@ -5,7 +5,7 @@ Skill para usar el CLI `nt` con tareas de CFDI: revisar documentos, analizar PDF
 ## Instalar en Codex
 
 ```bash
-npx skills add NTlink/ntlink-cfdi-skill --skill cfdi --global --agent codex
+npx skills add NTlink/cfdi --skill cfdi --global --agent codex
 ```
 
 Para instalarla en otros agentes compatibles, omite `--agent codex` y elige los agentes durante la instalación.
@@ -21,3 +21,4 @@ La skill requiere el CLI `nt`, que se instala por separado:
 ```bash
 npm install --global @ntlinkmx/nt
 ```
+
